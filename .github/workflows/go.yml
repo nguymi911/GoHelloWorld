@@ -23,6 +23,7 @@ jobs:
 
     - name: Build
       run: |
+        echo $PWD
         cd /greetings
         go build -v
 
