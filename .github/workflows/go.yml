@@ -24,7 +24,7 @@ jobs:
     - name: Build
       run: |
         echo $PWD
-        cd /home/runner/work/GoHelloWorld/greetings
+        cd /home/runner/work/GoHelloWorld/GoHelloWorld/greetings
         go build -v
 
     - name: Test
