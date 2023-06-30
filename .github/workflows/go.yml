@@ -22,7 +22,11 @@ jobs:
         go-version: 1.19
 
     - name: Build
-      run: go build -v ./greetings
+      run: |
+        cd /greetings
+        go build -v
 
     - name: Test
-      run: go test -v ./greetings
+      run: |
+        cd /greetings
+        go test -v
