@@ -1,4 +1,4 @@
-package main
+package HelloWorld
 
 import (
 	"fmt"
@@ -16,5 +16,5 @@ func main() {
 		log.Fatal(err)
 	}
 
-	fmt.Println(messages);
+	fmt.Println(messages)
 }
