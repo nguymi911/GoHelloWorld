@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
 	"net/http"
 	"time"
 )
@@ -9,6 +10,7 @@ import (
 func main() {
 	http.HandleFunc("/test", HelloServer)
 	http.HandleFunc("/", DefaultPath)
+	http.HandleFunc("/appreciations", Appreciation)
 	http.ListenAndServe(":8080", nil)
 }
 func HelloServer(w http.ResponseWriter, r *http.Request) {
@@ -18,4 +20,10 @@ func HelloServer(w http.ResponseWriter, r *http.Request) {
 func DefaultPath(w http.ResponseWriter, r *http.Request) {
 	sd := time.Date(2022, 2, 24, 0, 0, 0, 0, time.Now().UTC().Location())
 	fmt.Fprintf(w, "Heo <3 Banh Bao, day %v and counting!", int(time.Now().Sub(sd).Hours()/24))
+}
+
+func Appreciation(w http.ResponseWriter, r *http.Request) {
+	t := []string{"Understanding", "Loving", "Caring", "Sympathizing", "Collaborating", "Patient",
+		"Family-orienting", "Resilient", "Strong-willed", "Honest"}
+	fmt.Fprintf(w, "%v", t[rand.Intn(len(t))])
 }
